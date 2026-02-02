@@ -6,20 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Ayesha</title>
     <link rel="stylesheet" href="./style.css">
+    <style>
+        /* This overrides the colors in your style.css */
+        body {
+            background-color: #f3e5f5; /* Soft lavender background */
+        }
+
+        .envelope {
+            background-color: #7b1fa2; /* Deep purple envelope */
+        }
+
+        .envelope::before {
+            border-top-color: #9c27b0; /* The flap color */
+        }
+
+        /* If you have a heart icon, you can color it here */
+        .heart {
+            background-color: #e91e63; 
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="envelope-wrapper">
             <div class="envelope">
-               <div class="letter">
-    <div class="text">
-        <strong>Good Morning, Ash</strong>
-        <p>
-        The best part of my morning is knowing I get to talk to you later. Sending you all my love
-        </p>
-        <img src="1.gif" alt="Ayesha" class="letter-image">
-    </div>
-</div>
+                <div class="letter">
+                    <div class="text">
+                        <strong>To My Favorite Person,</strong>
+                        <p>
+                            Every day with you feels like a new adventure. 
+                            I'm so lucky to have you in my life, Ayesha. 
+                            Thinking of you always!
+                        </p>
+                        <img src="1.gif" alt="Ayesha" class="letter-image">
+                    </div>
+                </div>
             </div>
             <div class="heart"></div>
         </div>
@@ -27,7 +48,6 @@
 
     <script>
         const envelope = document.querySelector('.envelope-wrapper');
-        // This triggers the 'flap' class which starts the CSS animations
         envelope.addEventListener('click', () => {
             envelope.classList.toggle('flap');
         });
