@@ -1,19 +1,12 @@
 :root {
-  /* Theme Colors */
-  --bg-color: #ff7e5f;         /* Sunset Orange Background */
-  --primary: #87ceeb;          /* Sky Blue Letter Paper */
-  
-  /* Envelope Colors */
-  --bg-envelope-color: #e94560; /* Deep Rose Base */
-  --envelope-tab: #ff4d6d;      /* Slightly brighter flap */
-  --envelope-cover: #e94560;    /* Front body */
-  
-  /* Text and Shadows */
-  --shadow-color: rgba(0, 0, 0, 0.4);
-  --txt-color: #003366;         /* Deep Navy for readability on Sky Blue */
-  
-  /* Vibrant Heart Seal */
-  --heart-color: #ff0040; 
+  --bg-color: #fce4ec;          /* Soft Pink */
+  --primary: #ffffff;           /* Clean White Paper */
+  --bg-envelope-color: #f06292; /* Rose Pink */
+  --envelope-tab: #f48fb1;      /* Lighter Pink Flap */
+  --envelope-cover: #f06292;
+  --shadow-color: rgba(240, 98, 146, 0.3);
+  --txt-color: #880e4f;         /* Deep Wine/Maroon Text */
+  --heart-color: #e91e63;       /* Classic Pinkish Red */
 }
 
 body {
