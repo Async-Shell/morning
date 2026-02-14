@@ -1,12 +1,17 @@
 :root {
-  --bg-color: #fce4ec;          /* Soft Pink */
-  --primary: #ffffff;           /* Clean White Paper */
-  --bg-envelope-color: #f06292; /* Rose Pink */
-  --envelope-tab: #f48fb1;      /* Lighter Pink Flap */
-  --envelope-cover: #f06292;
-  --shadow-color: rgba(240, 98, 146, 0.3);
-  --txt-color: #880e4f;         /* Deep Wine/Maroon Text */
-  --heart-color: #e91e63;       /* Classic Pinkish Red */
+  /* Ultra Pink Theme */
+  --bg-color: #fce4ec;           /* Softest Blush Background */
+  --primary: #ffffff;            /* Clean White Paper */
+  
+  --bg-envelope-color: #f06292;  /* Vibrant Rose Base */
+  --envelope-tab: #f48fb1;       /* Lighter Pink Flap (creates depth) */
+  --envelope-cover: #ec407a;     /* Deep Pink Front Body */
+  
+  --shadow-color: rgba(233, 30, 99, 0.4);
+  --txt-color: #880e4f;          /* Deepest Berry for Text Readability */
+  
+  /* The Heart */
+  --heart-color: #d81b60;        /* Rich Magenta Heart */
 }
 
 body {
@@ -87,12 +92,11 @@ body {
   cursor: pointer;
 }
 
-.text {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: var(--txt-color);
-  text-align: center;
-  font-size: 10px;
-  line-height: 1.4;
+.text strong {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #ad1457;               /* Dark pink/berry instead of red */
 }
 
 .text strong {
