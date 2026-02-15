@@ -1,17 +1,16 @@
 :root {
-  /* Ultra Pink Theme */
-  --bg-color: #fce4ec;           /* Softest Blush Background */
-  --primary: #ffffff;            /* Clean White Paper */
-  
-  --bg-envelope-color: #f06292;  /* Vibrant Rose Base */
-  --envelope-tab: #f48fb1;       /* Lighter Pink Flap (creates depth) */
-  --envelope-cover: #ec407a;     /* Deep Pink Front Body */
-  
+  /* Ultra Pink Theme Colors */
+  --bg-color: #fce4ec;
+  --primary: #ffffff;
+  --bg-envelope-color: #f06292;
+  --envelope-tab: #f48fb1;
+  --envelope-cover: #ec407a;
   --shadow-color: rgba(233, 30, 99, 0.4);
-  --txt-color: #880e4f;          /* Deepest Berry for Text Readability */
-  
-  /* The Heart */
-  --heart-color: #d81b60;        /* Rich Magenta Heart */
+  --txt-color: #880e4f;
+  --heart-color: #d81b60;
+
+  /* Simplified Typography */
+  --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -24,6 +23,7 @@ body {
   justify-content: center;
   height: 100vh;
   overflow: hidden;
+  font-family: var(--font-main); /* Applies clean font to the whole page */
 }
 
 .container {
@@ -42,7 +42,6 @@ body {
   position: relative;
   width: 300px;
   height: 230px;
-  /* Hides the letter at the bottom but allows it to exit the top */
   clip-path: inset(-100% 0% 0% 0%);
 }
 
@@ -59,13 +58,13 @@ body {
   transition: all 0.5s ease-in-out 0.7s;
 }
 
-/* Front Body of Envelope */
+/* Front Body */
 .envelope::after {
   content: "";
   position: absolute;
   z-index: 2;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-top: 130px solid transparent;
   border-right: 150px solid var(--envelope-cover);
   border-bottom: 100px solid var(--envelope-cover);
@@ -82,37 +81,38 @@ body {
   background: var(--primary);
   text-align: center;
   transition: all 1s ease-in-out;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   z-index: 1;
-  cursor: pointer;
+  color: var(--txt-color);
 }
 
+/* Simplified Text Styling */
 .text strong {
   display: block;
-  font-size: 12px;
-  margin-bottom: 5px;
-  color: #ad1457;               /* Dark pink/berry instead of red */
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ad1457; /* Consistent deep pink */
 }
 
-.text strong {
-  display: block;
-  font-size: 12px;
-  margin-bottom: 5px;
-  color: #d63031; /* Slightly darker red for the header on blue */
+.text p {
+  font-size: 14px;
+  margin: 5px 0;
+  line-height: 1.4;
 }
 
-/* Fix for large/cut images */
+/* Fix for Letter Image */
 .letter-image {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 110px;
+  width: 100%;
+  height: auto;
+  max-height: 100px;
   object-fit: contain;
-  margin-top: 5px;
+  margin-top: 10px;
   border-radius: 4px;
   display: block;
 }
@@ -128,7 +128,7 @@ body {
   z-index: 4;
   transform: translate(-50%, -20%) rotate(45deg);
   transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.2);
 }
 
 .heart:before, 
@@ -141,29 +141,25 @@ body {
   border-radius: 50%;
 }
 
-.heart:before { top: -7.5px; }
-.heart:after { right: 7.5px; }
+.heart:before { top: -7.5px; left: 0; }
+.heart:after { left: -7.5px; top: 0; }
 
 /* --- Animation States --- */
 
-/* Flap opening */
 .flap .envelope::before {
   transform: rotateX(180deg);
   z-index: 0;
 }
 
-/* Letter sliding up */
 .flap .letter {
-  bottom: 120px;
-  transform: scale(1.6);
+  bottom: 110px;
+  transform: scale(1.5);
   transition-delay: 1s;
   z-index: 5; 
 }
 
-/* Heart disappears when open */
 .flap .heart {
   transform: translate(-50%, -20%) rotate(90deg);
   opacity: 0;
   pointer-events: none;
-  transition-delay: 0s;
 }
