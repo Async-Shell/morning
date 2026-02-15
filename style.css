@@ -9,8 +9,8 @@
   --txt-color: #880e4f;
   --heart-color: #d81b60;
 
-  /* Clean Typography */
-  --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Specific Typography: Calibri */
+  --font-main: 'Calibri', 'Candara', 'Segoe UI', sans-serif;
 }
 
 body {
@@ -24,6 +24,7 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased; /* Makes thin fonts look smoother */
 }
 
 .container {
@@ -42,7 +43,6 @@ body {
   position: relative;
   width: 300px;
   height: 230px;
-  /* Allows letter to slide out the top but stay hidden at bottom */
   clip-path: inset(-100% 0% 0% 0%);
 }
 
@@ -78,42 +78,43 @@ body {
   right: 20%;
   bottom: 0;
   width: 54%;
-  height: 80%;
+  height: 82%;
   background: var(--primary);
   text-align: center;
   transition: all 1s ease-in-out;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 10px;          /* Reduced padding to fit more content */
+  padding: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centers GIF and text perfectly */
+  justify-content: center; 
   z-index: 1;
   color: var(--txt-color);
-  box-sizing: border-box; /* Fixes width/padding cutting issues */
+  box-sizing: border-box;
 }
 
-/* Smaller Text Styling */
+/* Ultra-Clean & Small Text Styling */
 .text strong {
   display: block;
-  font-size: 13px;       /* Smaller header */
-  font-weight: 600;
-  margin-bottom: 5px;
+  font-size: 11px;       /* Small header */
+  font-weight: normal;  /* Removed Bold */
+  margin-bottom: 4px;
   color: #ad1457;
 }
 
 .text p {
-  font-size: 11px;       /* Smaller body text */
+  font-size: 10px;       /* Smaller body text */
+  font-weight: normal;  /* Removed Bold */
   margin: 2px 0;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
-/* Fix for GIF/Image cutting */
+/* GIF / Image Handling */
 .letter-image {
-  max-width: 100%;       /* Ensures it fits within letter width */
+  max-width: 100%;
   height: auto;
-  max-height: 85px;      /* Prevents it from pushing text out of view */
-  object-fit: contain;   /* Shows the full GIF without cropping */
+  max-height: 90px;
+  object-fit: contain;
   margin: 5px 0;
   border-radius: 4px;
   display: block;
@@ -154,8 +155,8 @@ body {
 }
 
 .flap .letter {
-  bottom: 115px;         /* Adjusted height for visibility */
-  transform: scale(1.6); /* Makes the smaller text readable when open */
+  bottom: 115px;
+  transform: scale(1.6); 
   transition-delay: 1s;
   z-index: 5; 
 }
