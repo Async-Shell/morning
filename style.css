@@ -9,7 +9,7 @@
   --txt-color: #880e4f;
   --heart-color: #d81b60;
 
-  /* Simplified Typography */
+  /* Clean Typography */
   --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -23,7 +23,7 @@ body {
   justify-content: center;
   height: 100vh;
   overflow: hidden;
-  font-family: var(--font-main); /* Applies clean font to the whole page */
+  font-family: var(--font-main);
 }
 
 .container {
@@ -42,6 +42,7 @@ body {
   position: relative;
   width: 300px;
   height: 230px;
+  /* Allows letter to slide out the top but stay hidden at bottom */
   clip-path: inset(-100% 0% 0% 0%);
 }
 
@@ -77,42 +78,43 @@ body {
   right: 20%;
   bottom: 0;
   width: 54%;
-  height: 85%;
+  height: 80%;
   background: var(--primary);
   text-align: center;
   transition: all 1s ease-in-out;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 15px;
+  padding: 10px;          /* Reduced padding to fit more content */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* Centers GIF and text perfectly */
   z-index: 1;
   color: var(--txt-color);
+  box-sizing: border-box; /* Fixes width/padding cutting issues */
 }
 
-/* Simplified Text Styling */
+/* Smaller Text Styling */
 .text strong {
   display: block;
-  font-size: 16px;
+  font-size: 13px;       /* Smaller header */
   font-weight: 600;
-  margin-bottom: 10px;
-  color: #ad1457; /* Consistent deep pink */
+  margin-bottom: 5px;
+  color: #ad1457;
 }
 
 .text p {
-  font-size: 14px;
-  margin: 5px 0;
-  line-height: 1.4;
+  font-size: 11px;       /* Smaller body text */
+  margin: 2px 0;
+  line-height: 1.2;
 }
 
-/* Fix for Letter Image */
+/* Fix for GIF/Image cutting */
 .letter-image {
-  width: 100%;
+  max-width: 100%;       /* Ensures it fits within letter width */
   height: auto;
-  max-height: 100px;
-  object-fit: contain;
-  margin-top: 10px;
+  max-height: 85px;      /* Prevents it from pushing text out of view */
+  object-fit: contain;   /* Shows the full GIF without cropping */
+  margin: 5px 0;
   border-radius: 4px;
   display: block;
 }
@@ -152,8 +154,8 @@ body {
 }
 
 .flap .letter {
-  bottom: 110px;
-  transform: scale(1.5);
+  bottom: 115px;         /* Adjusted height for visibility */
+  transform: scale(1.6); /* Makes the smaller text readable when open */
   transition-delay: 1s;
   z-index: 5; 
 }
