@@ -24,7 +24,7 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: var(--font-main);
-  -webkit-font-smoothing: antialiased; /* Makes thin fonts look smoother */
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -72,7 +72,7 @@ body {
   border-left: 150px solid var(--envelope-cover);
 }
 
-/* The Letter */
+/* The Letter - Updated for Vertical Centering */
 .letter {
   position: absolute;
   right: 20%;
@@ -83,39 +83,44 @@ body {
   text-align: center;
   transition: all 1s ease-in-out;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 12px;
+  padding: 10px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
+  flex-direction: column; /* Stacks items vertically */
+  align-items: center;    /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically */
   z-index: 1;
   color: var(--txt-color);
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* Ultra-Clean & Small Text Styling */
+.text {
+  width: 100%;
+}
+
 .text strong {
   display: block;
-  font-size: 11px;       /* Small header */
-  font-weight: normal;  /* Removed Bold */
+  font-size: 11px;
+  font-weight: normal;
   margin-bottom: 4px;
   color: #ad1457;
 }
 
 .text p {
-  font-size: 10px;       /* Smaller body text */
-  font-weight: normal;  /* Removed Bold */
+  font-size: 10px;
+  font-weight: normal;
   margin: 2px 0;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
-/* GIF / Image Handling */
+/* GIF / Image Handling - Fixed to stay under text */
 .letter-image {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
-  max-height: 90px;
+  max-height: 70px; /* Adjusted to fit within the letter bounds */
   object-fit: contain;
-  margin: 5px 0;
+  margin-top: 8px; /* Adds space between text and GIF */
   border-radius: 4px;
   display: block;
 }
