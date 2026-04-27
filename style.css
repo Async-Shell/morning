@@ -1,22 +1,22 @@
-/* Pinkish Pink Aesthetic Theme 
-  Replaces the Matcha Latte theme with a soft, romantic palette.
+/* Barbie Pink Aesthetic Theme 
+   Replaces soft pastels with vibrant bubblegum and high-fashion magentas.
 */
 
 :root {
-  --primary: #ffffff;               /* Pure White Paper */
+  --primary: #ffffff;             /* Brilliant White */
   
-  /* Pink Theme Palette */
-  --bg-color: #ffe4e9;             /* Softest Pastel Pink Background */
-  --bg-envelope-color: #ffafbd;    /* Peachy Rose Base */
-  --envelope-tab: #ffc3cf;         /* Light Cupcake Pink Flap */
-  --envelope-cover: #ffafbd;       /* Front Body */
+  /* Barbie Pink Palette */
+  --bg-color: #ff85a1;            /* Bright Bubblegum Background */
+  --bg-envelope-color: #ff0a54;   /* Deep Hot Pink Base */
+  --envelope-tab: #ff477e;        /* Classic Barbie Pink Flap */
+  --envelope-cover: #ff0a54;      /* Front Body */
   
   /* Shadows and Accents */
-  --shadow-color: rgba(214, 93, 122, 0.3); /* Warm Pinkish Shadow */
-  --txt-color: #9e3d54;            /* Deep Raspberry Text */
+  --shadow-color: rgba(144, 13, 52, 0.5); /* Deep Magenta Shadow */
+  --txt-color: #800f2f;            /* Dark Fuchsia Text for readability */
   
-  /* Vibrant Heart Seal */
-  --heart-color: #ff4d6d;          /* Bright Cherry Pink */
+  /* Icon Accent */
+  --heart-color: #ffccd5;          /* Pale Pink Heart (to pop against Hot Pink) */
 }
 
 body {
@@ -24,6 +24,10 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: var(--bg-color);
+  background-image: radial-gradient(circle, #ff99ac 20%, transparent 20%), 
+                    radial-gradient(circle, #ff99ac 20%, transparent 20%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px; /* Subtle Polka Dot for that Barbie Vibe */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,16 +42,16 @@ body {
 
 .envelope-wrapper {
   background: var(--bg-envelope-color);
-  box-shadow: 0 15px 40px var(--shadow-color);
+  box-shadow: 0 15px 50px var(--shadow-color);
   position: relative;
   cursor: pointer;
+  border-radius: 0 0 5px 5px;
 }
 
 .envelope {
   position: relative;
   width: 300px;
   height: 230px;
-  /* Hides the letter at the bottom but allows it to exit the top */
   clip-path: inset(-100% 0% 0% 0%);
 }
 
@@ -64,7 +68,7 @@ body {
   transition: all 0.5s ease-in-out 0.7s;
 }
 
-/* Front Body of Envelope */
+/* Front Body */
 .envelope::after {
   content: "";
   position: absolute;
@@ -87,7 +91,7 @@ body {
   background: var(--primary);
   text-align: center;
   transition: all 1s ease-in-out;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -95,11 +99,12 @@ body {
   justify-content: flex-start;
   z-index: 1;
   cursor: pointer;
-  border-radius: 5px; /* Slight rounding for a softer look */
+  border: 2px solid #ffccd5; /* Fashion border */
+  border-radius: 2px;
 }
 
 .text {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Century Gothic', Futura, sans-serif; /* Cleaner, more 'fashion' font */
   color: var(--txt-color);
   text-align: center;
   font-size: 10px;
@@ -110,10 +115,11 @@ body {
   display: block;
   font-size: 12px;
   margin-bottom: 5px;
-  color: var(--heart-color);
+  color: #ff0a54;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Fix for large/cut images */
 .letter-image {
   width: 100% !important;
   height: auto !important;
@@ -129,37 +135,34 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   background: var(--heart-color);
   z-index: 4;
   transform: translate(-50%, -20%) rotate(45deg);
   transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .heart:before, 
 .heart:after {
   content: "";
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   background-color: var(--heart-color);
   border-radius: 50%;
 }
 
-.heart:before { top: -7.5px; }
-.heart:after { right: 7.5px; }
+.heart:before { top: -9px; }
+.heart:after { right: 9px; }
 
-/* --- Animation States --- */
-
-/* Flap opening */
+/* Animation States */
 .flap .envelope::before {
   transform: rotateX(180deg);
   z-index: 0;
 }
 
-/* Letter sliding up */
 .flap .letter {
   bottom: 120px;
   transform: scale(1.6);
@@ -167,7 +170,6 @@ body {
   z-index: 5; 
 }
 
-/* Heart disappears when open */
 .flap .heart {
   transform: translate(-50%, -20%) rotate(90deg);
   opacity: 0;
